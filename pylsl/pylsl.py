@@ -1183,11 +1183,11 @@ def resolve_stream(*args):
 os_name = platform.system()
 bitness = 8 * struct.calcsize("P")
 if os_name in ['Windows', 'Microsoft']:
-    libname = 'liblsl32.dll' if bitness == 32 else 'liblsl64.dll'
+    libname = 'liblsl32-debug.dll' if bitness == 32 else 'liblsl64-debug.dll'
 elif os_name == 'Darwin':
-    libname = 'liblsl32.dylib' if bitness == 32 else 'liblsl64.dylib'
+    libname = 'liblsl32-debug.dylib' if bitness == 32 else 'liblsl64-debug.dylib'
 elif os_name == 'Linux':
-    libname = 'liblsl32.so' if bitness == 32 else 'liblsl64.so'
+    libname = 'liblsl32-debug.so' if bitness == 32 else 'liblsl64-debug.so'
 else:
     raise RuntimeError("unrecognized operating system:", os_name)
 libpath = os.path.join(os.path.dirname(__file__), 'lib', libname)
